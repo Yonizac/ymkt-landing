@@ -192,43 +192,78 @@
         .step h3 { font-size: 1.5rem; line-height: 1.2; margin-bottom: 14px; }
         .step p { font-size: 1rem; color: var(--text-muted); }
 
-        /* ---- Tech / sous le capot ---- */
-        .tech { padding: 130px 0; border-bottom: 1px solid var(--border); }
-        .tech h2 { font-size: clamp(1.9rem, 3.8vw, 3rem); line-height: 1.15; max-width: 20ch; margin-bottom: 16px; }
-        .tech-intro { font-size: 1.05rem; color: var(--text-muted); max-width: 56ch; }
+        /* ---- Méthode / sous le capot ---- */
+        .method { padding: 130px 0; border-bottom: 1px solid var(--border); }
+        .method > .container > h2 { font-size: clamp(1.9rem, 3.8vw, 3rem); line-height: 1.15; max-width: 20ch; margin-bottom: 16px; }
+        .method-intro { font-size: 1.05rem; color: var(--text-muted); max-width: 58ch; }
 
-        .diagram { margin: 64px 0 56px; overflow-x: auto; }
-        .diagram svg { display: block; margin: 0 auto; min-width: 660px; }
-        .dg-node { fill: var(--bg); stroke: var(--blue); stroke-width: 1.5; }
-        .dg-node-active { fill: var(--blue-soft); stroke: var(--blue); stroke-width: 1.5; }
-        .dg-line { stroke: var(--blue); stroke-width: 1; stroke-dasharray: 6 4; opacity: 0.45; }
-        .dg-t { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600; fill: var(--text); letter-spacing: 0.02em; }
-        .dg-s { font-family: 'Inter', sans-serif; font-size: 10.5px; fill: var(--text-muted); }
+        .method-block {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
+            padding: 72px 0; border-top: 1px solid var(--border);
+        }
+        .method-block:first-of-type { margin-top: 72px; }
+        @media (max-width: 860px) {
+            .method-block { grid-template-columns: 1fr; gap: 40px; padding: 56px 0; }
+            .method-block .mb-visual { order: 2; }
+        }
 
-        .signals-label { font-size: 0.92rem; color: var(--text-muted); margin-bottom: 20px; }
-        .signals { display: flex; flex-wrap: wrap; gap: 12px; }
+        .mb-label {
+            font-size: 0.74rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.14em;
+            color: var(--blue); margin-bottom: 18px;
+        }
+        .mb-text h3 { font-size: clamp(1.5rem, 2.6vw, 1.9rem); line-height: 1.2; margin-bottom: 16px; }
+        .mb-text p { font-size: 1.02rem; color: var(--text-muted); margin-bottom: 24px; }
+
+        .diagram-card {
+            background: linear-gradient(160deg, #ffffff 0%, #f3f6fc 100%);
+            border: 1px solid var(--border); border-radius: 16px;
+            padding: 30px 28px;
+            box-shadow: 0 24px 50px -28px rgba(37,99,235,0.35);
+            overflow: hidden;
+        }
+        .diagram-card svg { display: block; width: 100%; height: auto; }
+
+        /* legend (bullseye) */
+        .legend { list-style: none; }
+        .legend li { display: flex; align-items: center; gap: 12px; padding: 9px 0; font-size: 0.96rem; color: var(--text-muted); }
+        .legend .sw { width: 15px; height: 15px; border-radius: 50%; border: 1px solid var(--border); flex-shrink: 0; }
+        .legend li.hit { color: var(--text); font-weight: 600; }
+        .legend li.hit .sw { background: var(--blue); border-color: var(--blue); }
+
+        /* signals chips */
+        .signals { display: flex; flex-wrap: wrap; gap: 11px; }
         .signal-chip {
             border: 1px solid var(--border); border-radius: 100px;
-            padding: 9px 20px; font-size: 0.9rem; color: var(--text);
-            background: rgba(255,255,255,0.45);
+            padding: 9px 18px; font-size: 0.88rem; color: var(--text);
+            background: rgba(255,255,255,0.6);
         }
         .signal-chip b { color: var(--blue); font-weight: 600; }
 
-        .stack { margin-top: 84px; }
+        /* animated flow connectors */
+        @keyframes flowdash { to { stroke-dashoffset: -22; } }
+        .flow-line { stroke: var(--blue); stroke-width: 1.6; stroke-dasharray: 5 5; opacity: 0.6; fill: none; animation: flowdash 0.9s linear infinite; }
+        @media (prefers-reduced-motion: reduce) { .flow-line { animation: none; } }
+        .dg-t { font-family: 'Inter', sans-serif; font-size: 12.5px; font-weight: 600; fill: var(--text); letter-spacing: 0.01em; }
+        .dg-s { font-family: 'Inter', sans-serif; font-size: 10px; fill: var(--text-muted); }
+        .dg-w { font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600; fill: #fff; }
+
+        /* stack */
+        .stack { padding-top: 76px; border-top: 1px solid var(--border); margin-top: 24px; }
         .stack-label {
             font-size: 0.74rem; font-weight: 600;
             text-transform: uppercase; letter-spacing: 0.16em;
             color: var(--blue); margin-bottom: 26px;
         }
-        .stack-row { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+        .stack-row { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
         .tool {
             display: flex; align-items: center; gap: 11px;
             padding: 13px 22px; border: 1px solid var(--border); border-radius: 8px;
-            background: rgba(255,255,255,0.45);
+            background: rgba(255,255,255,0.55);
         }
         .tool .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--blue); flex-shrink: 0; }
-        .tool span { font-weight: 600; font-size: 0.98rem; letter-spacing: 0.01em; }
-        .stack-note { font-size: 0.9rem; color: var(--text-muted); margin-top: 24px; }
+        .tool span { font-weight: 600; font-size: 0.96rem; letter-spacing: 0.01em; }
+        .stack-note { font-size: 0.92rem; color: var(--text-muted); margin-top: 26px; max-width: 60ch; }
 
         /* ---- Offer ---- */
         .offer { padding: 130px 0; border-bottom: 1px solid var(--border); }
@@ -408,52 +443,110 @@
     </div>
 </section>
 
-<!-- ===== TECH / SOUS LE CAPOT ===== -->
-<section class="tech blueprint-bg" id="methode">
+<!-- ===== MÉTHODE / SOUS LE CAPOT ===== -->
+<section class="method blueprint-bg" id="methode">
     <div class="container">
         <div class="section-label">Sous le capot</div>
-        <h2>On ne contacte pas au hasard. On attend le bon moment.</h2>
-        <p class="tech-intro">La plupart des prospections arrosent tout le monde, tout le temps. Nous, on part d'un <strong>signal</strong> : un événement qui montre qu'une entreprise a un besoin maintenant. Moins de messages envoyés, beaucoup plus de réponses.</p>
+        <h2>Pourquoi ça marche mieux qu'arroser large.</h2>
+        <p class="method-intro">Deux principes simples, appliqués avec rigueur : viser la bonne douleur, et viser le bon moment. C'est ce qui fait la différence entre du démarchage ignoré et un message auquel on répond.</p>
 
-        <div class="diagram">
-            <svg width="800" height="118" viewBox="0 0 800 118" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- Node 1 -->
-                <rect class="dg-node-active" x="0" y="30" width="152" height="58" rx="7"/>
-                <text class="dg-t" x="76" y="56" text-anchor="middle">Un signal</text>
-                <text class="dg-s" x="76" y="73" text-anchor="middle">le bon moment</text>
-                <!-- arrow -->
-                <line class="dg-line" x1="156" y1="59" x2="202" y2="59"/>
-                <polygon fill="var(--blue)" opacity="0.45" points="200,55 208,59 200,63"/>
-                <!-- Node 2 -->
-                <rect class="dg-node" x="208" y="30" width="172" height="58" rx="7"/>
-                <text class="dg-t" x="294" y="56" text-anchor="middle">La bonne cible</text>
-                <text class="dg-s" x="294" y="73" text-anchor="middle">entreprise + contact</text>
-                <!-- arrow -->
-                <line class="dg-line" x1="384" y1="59" x2="430" y2="59"/>
-                <polygon fill="var(--blue)" opacity="0.45" points="428,55 436,59 428,63"/>
-                <!-- Node 3 -->
-                <rect class="dg-node-active" x="436" y="30" width="160" height="58" rx="7"/>
-                <text class="dg-t" x="516" y="56" text-anchor="middle">Le bon message</text>
-                <text class="dg-s" x="516" y="73" text-anchor="middle">écrit pour eux</text>
-                <!-- arrow -->
-                <line class="dg-line" x1="600" y1="59" x2="646" y2="59"/>
-                <polygon fill="var(--blue)" opacity="0.45" points="644,55 652,59 644,63"/>
-                <!-- Node 4 -->
-                <rect class="dg-node" x="652" y="30" width="148" height="58" rx="7"/>
-                <text class="dg-t" x="726" y="56" text-anchor="middle">Le rendez-vous</text>
-                <text class="dg-s" x="726" y="73" text-anchor="middle">dans votre agenda</text>
-            </svg>
+        <!-- Block 1 — pain-based -->
+        <div class="method-block">
+            <div class="mb-text">
+                <div class="mb-label">01 &middot; Le ciblage</div>
+                <h3>On vise la douleur, pas la taille.</h3>
+                <p>La plupart des prospections ciblent par secteur et par taille d'entreprise. Nous, on cherche le point précis où ça fait mal &mdash; le problème si urgent qu'on ne le repousse pas à plus tard. On le repère dans des données publiques que personne n'exploite, et on arrive avec une info utile, pas un argumentaire.</p>
+                <ul class="legend">
+                    <li><span class="sw" style="background:#ece7de"></span> Tout le marché</li>
+                    <li><span class="sw" style="background:#e3e9f5"></span> Le bon secteur</li>
+                    <li><span class="sw" style="background:#cdd9f3"></span> La bonne taille</li>
+                    <li class="hit"><span class="sw"></span> La douleur &mdash; maintenant</li>
+                </ul>
+            </div>
+            <div class="mb-visual">
+                <div class="diagram-card">
+                    <svg viewBox="0 0 320 250" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cible : la plupart s'arrêtent aux cercles extérieurs, nous visons le centre">
+                        <defs>
+                            <radialGradient id="bullBlue" cx="0.4" cy="0.35" r="0.7">
+                                <stop offset="0" stop-color="#3b82f6"/>
+                                <stop offset="1" stop-color="#1d4ed8"/>
+                            </radialGradient>
+                            <filter id="glowA" x="-60%" y="-60%" width="220%" height="220%">
+                                <feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#2563eb" flood-opacity="0.45"/>
+                            </filter>
+                        </defs>
+                        <circle cx="158" cy="132" r="112" fill="#ece7de" stroke="#d4cfc7"/>
+                        <circle cx="158" cy="132" r="82" fill="#e3e9f5" stroke="#d4cfc7"/>
+                        <circle cx="158" cy="132" r="52" fill="#cdd9f3" stroke="#c3cfe9"/>
+                        <circle cx="158" cy="132" r="24" fill="url(#bullBlue)" filter="url(#glowA)"/>
+                        <circle cx="158" cy="132" r="7" fill="#fff" opacity="0.95"/>
+                        <!-- trajectoire boulet -->
+                        <path class="flow-line" d="M14 16 Q120 36 152 124"/>
+                        <polygon fill="#2563eb" points="148,116 158,130 142,128"/>
+                    </svg>
+                </div>
+            </div>
         </div>
 
-        <div class="signals-label">Les signaux qu'on surveille, par exemple :</div>
-        <div class="signals">
-            <div class="signal-chip">Une entreprise qui <b>recrute</b></div>
-            <div class="signal-chip">qui <b>s'agrandit</b> ou ouvre un site</div>
-            <div class="signal-chip">qui <b>lève des fonds</b></div>
-            <div class="signal-chip">qui <b>change de direction</b></div>
-            <div class="signal-chip">qui <b>expose dans un salon</b></div>
+        <!-- Block 2 — signaux -->
+        <div class="method-block">
+            <div class="mb-visual">
+                <div class="diagram-card">
+                    <svg viewBox="0 0 690 210" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Des signaux publics alimentent le moteur qui repère le bon moment, écrit le message et décroche le rendez-vous">
+                        <defs>
+                            <linearGradient id="coreBlue" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0" stop-color="#3b82f6"/>
+                                <stop offset="1" stop-color="#1d4ed8"/>
+                            </linearGradient>
+                            <filter id="glowB" x="-40%" y="-40%" width="180%" height="180%">
+                                <feDropShadow dx="0" dy="6" stdDeviation="9" flood-color="#2563eb" flood-opacity="0.4"/>
+                            </filter>
+                        </defs>
+                        <!-- entrées -->
+                        <rect x="0" y="26" width="124" height="42" rx="9" fill="#fff" stroke="#d4cfc7"/>
+                        <text class="dg-t" x="62" y="52" text-anchor="middle">Recrutement</text>
+                        <rect x="0" y="84" width="124" height="42" rx="9" fill="#fff" stroke="#d4cfc7"/>
+                        <text class="dg-t" x="62" y="110" text-anchor="middle">Croissance</text>
+                        <rect x="0" y="142" width="124" height="42" rx="9" fill="#fff" stroke="#d4cfc7"/>
+                        <text class="dg-t" x="62" y="168" text-anchor="middle">Levée de fonds</text>
+                        <!-- convergence -->
+                        <path class="flow-line" d="M124 47 C175 47 175 96 208 100"/>
+                        <path class="flow-line" d="M124 105 C175 105 180 100 208 100"/>
+                        <path class="flow-line" d="M124 163 C175 163 175 104 208 100"/>
+                        <!-- moteur -->
+                        <rect x="210" y="66" width="150" height="68" rx="13" fill="url(#coreBlue)" filter="url(#glowB)"/>
+                        <text class="dg-w" x="285" y="96" text-anchor="middle">On repère</text>
+                        <text class="dg-w" x="285" y="114" text-anchor="middle">le bon moment</text>
+                        <!-- vers message -->
+                        <path class="flow-line" d="M360 100 H408"/>
+                        <polygon fill="#2563eb" points="406,96 414,100 406,104"/>
+                        <rect x="416" y="74" width="110" height="52" rx="10" fill="#fff" stroke="#d4cfc7"/>
+                        <text class="dg-t" x="471" y="96" text-anchor="middle">Le bon</text>
+                        <text class="dg-t" x="471" y="112" text-anchor="middle">message</text>
+                        <!-- vers rdv -->
+                        <path class="flow-line" d="M526 100 H566"/>
+                        <polygon fill="#2563eb" points="564,96 572,100 564,104"/>
+                        <rect x="574" y="74" width="116" height="52" rx="10" fill="#0b1220"/>
+                        <text class="dg-w" x="632" y="96" text-anchor="middle">Le rendez-</text>
+                        <text class="dg-w" x="632" y="112" text-anchor="middle">vous</text>
+                    </svg>
+                </div>
+            </div>
+            <div class="mb-text">
+                <div class="mb-label">02 &middot; Le moment</div>
+                <h3>On contacte au bon moment.</h3>
+                <p>On surveille des signaux publics qui montrent qu'une entreprise a un besoin maintenant. On arrive pile quand le sujet est chaud &mdash; pas six mois trop tôt, pas un an trop tard.</p>
+                <div class="signals">
+                    <div class="signal-chip">qui <b>recrute</b></div>
+                    <div class="signal-chip">qui <b>s'agrandit</b></div>
+                    <div class="signal-chip">qui <b>lève des fonds</b></div>
+                    <div class="signal-chip">qui <b>change de direction</b></div>
+                    <div class="signal-chip">qui <b>expose dans un salon</b></div>
+                </div>
+            </div>
         </div>
 
+        <!-- Stack -->
         <div class="stack">
             <div class="stack-label">Construit avec</div>
             <div class="stack-row">
@@ -461,8 +554,10 @@
                 <div class="tool"><span class="dot"></span><span>Clay</span></div>
                 <div class="tool"><span class="dot"></span><span>Lemlist</span></div>
                 <div class="tool"><span class="dot"></span><span>HeyReach</span></div>
+                <div class="tool"><span class="dot"></span><span>n8n</span></div>
+                <div class="tool"><span class="dot"></span><span>trigger.dev</span></div>
             </div>
-            <p class="stack-note">Les mêmes outils que les meilleures équipes commerciales du monde. Vous, vous n'avez rien à installer ni à apprendre.</p>
+            <p class="stack-note">Les mêmes outils que les meilleures équipes commerciales du monde. Vous, vous n'avez rien à installer ni à apprendre &mdash; on s'occupe de toute la mécanique.</p>
         </div>
     </div>
 </section>
