@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YMKT &mdash; On construit votre machine à clients</title>
+    <meta name="description" content="On trouve les bonnes entreprises à contacter, on écrit les messages qui donnent envie de répondre, et on fait tourner la machine. Vous récupérez les rendez-vous, sans embaucher de commercial.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #f5f2ed;
+            --bg-dark: #0b1220;
+            --surface: #eae6df;
+            --border: #d4cfc7;
+            --border-dark: rgba(255,255,255,0.10);
+            --text: #1a1a1a;
+            --text-light: #fff;
+            --text-muted: #6b6560;
+            --blue: #2563eb;
+            --blue-soft: rgba(37, 99, 235, 0.07);
+            --blue-line: rgba(37, 99, 235, 0.07);
+            --blue-muted: rgba(37, 99, 235, 0.6);
+        }
+
+        /* ---- Blueprint grid ---- */
+        .blueprint-bg { position: relative; }
+
+        .blueprint-bg::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                repeating-linear-gradient(0deg, var(--blue-line) 0px, var(--blue-line) 1px, transparent 1px, transparent 64px),
+                repeating-linear-gradient(90deg, var(--blue-line) 0px, var(--blue-line) 1px, transparent 1px, transparent 64px);
+            pointer-events: none;
+            z-index: 0;
+            -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 55%, transparent 100%);
+            mask-image: linear-gradient(180deg, #000 0%, #000 55%, transparent 100%);
+        }
+
+        .blueprint-bg > * { position: relative; z-index: 1; }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            font-weight: 300;
+        }
+
+        h1, h2, h3 { font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; }
+
+        .container { max-width: 1120px; margin: 0 auto; padding: 0 40px; }
+
+        ::selection { background: var(--blue); color: #fff; }
+
+        /* ---- Nav ---- */
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            background: rgba(245, 242, 237, 0.85);
+            backdrop-filter: blur(16px);
+        }
+
+        nav .container {
+            display: flex; justify-content: space-between; align-items: center;
+            height: 76px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-logo {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600; font-size: 0.9rem; color: var(--text);
+            text-decoration: none; text-transform: uppercase;
+            letter-spacing: 0.22em;
+        }
+
+        .nav-cta {
+            font-size: 0.82rem; color: var(--text); text-decoration: none;
+            letter-spacing: 0.04em; font-weight: 500;
+            border-bottom: 1.5px solid var(--blue); padding-bottom: 3px;
+            transition: color 0.2s;
+        }
+        .nav-cta:hover { color: var(--blue); }
+
+        /* ---- Hero ---- */
+        .hero { padding: 220px 0 150px; border-bottom: 1px solid var(--border); }
+
+        .hero h1 {
+            font-size: clamp(2.9rem, 7vw, 5.6rem);
+            line-height: 1.02;
+            letter-spacing: -0.035em;
+            max-width: 16ch;
+            margin-bottom: 48px;
+        }
+
+        .hero h1 em { font-style: italic; color: var(--blue); }
+
+        .hero-sub { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; }
+
+        @media (max-width: 820px) { .hero-sub { grid-template-columns: 1fr; gap: 36px; } }
+
+        .hero-sub p { font-size: 1.18rem; color: var(--text-muted); max-width: 460px; }
+
+        .hero-kicker {
+            display: inline-block;
+            font-size: 0.74rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.16em;
+            color: var(--blue); margin-bottom: 32px;
+        }
+
+        .btn {
+            display: inline-block;
+            font-size: 0.82rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.1em;
+            color: #fff; background: var(--text); text-decoration: none;
+            padding: 16px 32px; border-radius: 4px;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .btn:hover { background: var(--blue); transform: translateY(-2px); }
+
+        /* ---- Section base ---- */
+        .section-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.74rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.16em;
+            color: var(--blue);
+            margin-bottom: 40px;
+        }
+
+        /* ---- Problem ---- */
+        .problem { padding: 130px 0; border-bottom: 1px solid var(--border); }
+
+        .problem h2 { font-size: clamp(1.9rem, 3.8vw, 3rem); line-height: 1.18; max-width: 18ch; margin-bottom: 80px; }
+
+        .problem-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 56px; }
+
+        @media (max-width: 768px) { .problem-grid { grid-template-columns: 1fr; gap: 0; } }
+
+        .problem-item { padding-top: 28px; border-top: 2px solid var(--text); }
+
+        @media (max-width: 768px) {
+            .problem-item { padding: 36px 0; border-top: 1px solid var(--border); }
+            .problem-item:first-child { border-top: 2px solid var(--text); }
+        }
+
+        .problem-item h3 { font-family: 'Inter', sans-serif; font-size: 1.15rem; font-weight: 600; margin-bottom: 12px; }
+        .problem-item p { font-size: 0.98rem; color: var(--text-muted); }
+
+        /* ---- Statement band (dark) ---- */
+        .statement { background: var(--bg-dark); color: var(--text-light); padding: 130px 0; text-align: center; }
+
+        .statement .container { max-width: 920px; }
+
+        .statement .tag {
+            font-size: 0.74rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.16em;
+            color: var(--blue-muted); margin-bottom: 40px;
+        }
+
+        .statement p {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(1.7rem, 3.6vw, 2.9rem);
+            line-height: 1.32;
+            color: #fff;
+        }
+
+        .statement p .dim { color: rgba(255,255,255,0.4); }
+
+        /* ---- How (steps) ---- */
+        .how { padding: 130px 0; border-bottom: 1px solid var(--border); }
+
+        .how h2 { font-size: clamp(1.9rem, 3.8vw, 3rem); line-height: 1.15; margin-bottom: 16px; max-width: 16ch; }
+        .how-intro { font-size: 1.05rem; color: var(--text-muted); margin-bottom: 80px; max-width: 48ch; }
+
+        .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 56px; }
+
+        @media (max-width: 768px) { .steps { grid-template-columns: 1fr; gap: 56px; } }
+
+        .step { padding-top: 28px; border-top: 1px solid var(--blue-muted); }
+
+        .step-num {
+            font-family: 'DM Serif Display', serif;
+            font-size: 2.6rem; line-height: 1;
+            color: var(--blue); margin-bottom: 18px;
+        }
+
+        .step h3 { font-size: 1.5rem; line-height: 1.2; margin-bottom: 14px; }
+        .step p { font-size: 1rem; color: var(--text-muted); }
+
+        /* ---- Offer ---- */
+        .offer { padding: 130px 0; border-bottom: 1px solid var(--border); }
+
+        .offer-header { margin-bottom: 72px; max-width: 600px; }
+        .offer-header h2 { font-size: clamp(1.9rem, 3.8vw, 3rem); line-height: 1.15; margin-bottom: 20px; }
+        .offer-header p { font-size: 1.05rem; color: var(--text-muted); }
+
+        .offer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+
+        @media (max-width: 820px) { .offer-grid { grid-template-columns: 1fr; } }
+
+        .card {
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 44px;
+            background: rgba(255,255,255,0.4);
+        }
+
+        .card.feature { border-color: var(--bg-dark); background: var(--bg-dark); color: #fff; }
+
+        .card-label {
+            font-size: 0.74rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.13em;
+            color: var(--blue); margin-bottom: 22px;
+        }
+        .card.feature .card-label { color: var(--blue-muted); }
+
+        .card h3 { font-size: 1.65rem; line-height: 1.15; margin-bottom: 14px; }
+        .card > p { font-size: 0.98rem; color: var(--text-muted); margin-bottom: 30px; }
+        .card.feature > p { color: rgba(255,255,255,0.6); }
+
+        .price { font-family: 'DM Serif Display', serif; font-size: 2.3rem; line-height: 1; margin-bottom: 6px; }
+        .price span { font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 300; color: var(--text-muted); }
+        .card.feature .price span { color: rgba(255,255,255,0.5); }
+        .price-sub { font-size: 0.84rem; color: var(--text-muted); margin-bottom: 32px; }
+        .card.feature .price-sub { color: rgba(255,255,255,0.45); }
+
+        .card-list { list-style: none; margin-bottom: 32px; }
+        .card-list li {
+            padding: 12px 0 12px 28px; position: relative;
+            font-size: 0.95rem; color: var(--text-muted);
+            border-bottom: 1px solid var(--border);
+        }
+        .card.feature .card-list li { color: rgba(255,255,255,0.62); border-bottom: 1px solid var(--border-dark); }
+        .card-list li::before { content: "→"; position: absolute; left: 0; color: var(--blue); }
+
+        .card-note { font-size: 0.86rem; color: var(--text-muted); font-style: italic; margin-bottom: 30px; }
+        .card.feature .card-note { color: rgba(255,255,255,0.5); }
+
+        .card .btn { background: var(--text); }
+        .card.feature .btn { background: #fff; color: var(--bg-dark); }
+        .card.feature .btn:hover { background: var(--blue); color: #fff; }
+
+        /* ---- Fit (dark) ---- */
+        .fit { background: var(--bg-dark); color: var(--text-light); padding: 130px 0; }
+
+        .fit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; }
+
+        @media (max-width: 768px) { .fit-grid { grid-template-columns: 1fr; gap: 48px; } }
+
+        .fit-col h3 { font-size: 1.5rem; margin-bottom: 32px; }
+        .fit-col.yes h3 { color: #fff; }
+        .fit-col.no h3 { color: rgba(255,255,255,0.4); }
+
+        .fit-list { list-style: none; }
+
+        .fit-list li {
+            padding: 16px 0; border-bottom: 1px solid var(--border-dark);
+            font-size: 0.98rem; color: rgba(255,255,255,0.6);
+            display: flex; align-items: flex-start; gap: 14px;
+        }
+        .fit-list li:first-child { border-top: 1px solid var(--border-dark); }
+
+        .fit-icon { flex-shrink: 0; margin-top: 1px; font-weight: 500; }
+        .fit-col.yes .fit-icon { color: var(--blue-muted); }
+        .fit-col.no .fit-icon { color: rgba(255,255,255,0.25); }
+
+        /* ---- CTA ---- */
+        .cta-final { padding: 170px 0; text-align: center; }
+
+        .cta-final h2 { font-size: clamp(2.4rem, 5.5vw, 4.2rem); line-height: 1.05; max-width: 16ch; margin: 0 auto 24px; }
+        .cta-final h2 em { font-style: italic; color: var(--blue); }
+        .cta-final p { font-size: 1.1rem; color: var(--text-muted); max-width: 480px; margin: 0 auto 48px; }
+
+        .cta-links { display: flex; gap: 32px; justify-content: center; align-items: center; flex-wrap: wrap; }
+        .cta-links .secondary {
+            font-size: 0.82rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em;
+            color: var(--text-muted); text-decoration: none; border-bottom: 1px solid var(--text-muted); padding-bottom: 4px;
+        }
+        .cta-links .secondary:hover { color: var(--text); }
+
+        /* ---- Footer ---- */
+        footer { padding: 36px 0; border-top: 1px solid var(--border); }
+        footer .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+        footer p, footer a { font-size: 0.8rem; color: var(--text-muted); text-decoration: none; letter-spacing: 0.02em; }
+        footer a:hover { color: var(--text); }
+    </style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav>
+    <div class="container">
+        <a href="#" class="nav-logo">YMKT</a>
+        <a href="https://cal.com/yonielbaz" class="nav-cta">Prendre rendez-vous</a>
+    </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero blueprint-bg">
+    <div class="container">
+        <span class="hero-kicker">Prospection commerciale B2B</span>
+        <h1>On construit votre <em>machine à clients.</em></h1>
+        <div class="hero-sub">
+            <p>Les bonnes entreprises à contacter, les messages qui donnent envie de répondre, et tout le suivi. On assemble le système &mdash; et on le fait tourner pour vous.</p>
+            <div>
+                <p style="margin-bottom:32px;">Vous récupérez les rendez-vous. Sans embaucher de commercial.</p>
+                <a href="https://cal.com/yonielbaz" class="btn">Prendre 30 minutes &rarr;</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== PROBLEM ===== -->
+<section class="problem">
+    <div class="container">
+        <div class="section-label">Le constat</div>
+        <h2>Vos clients viennent du réseau, des salons et du bouche-à-oreille. C'est solide. Mais ça ne suffit plus pour grandir.</h2>
+        <div class="problem-grid">
+            <div class="problem-item">
+                <h3>Tout repose sur vous</h3>
+                <p>Dès que vous levez le pied, le développement ralentit. Ça ne tient qu'à votre temps et à votre carnet d'adresses.</p>
+            </div>
+            <div class="problem-item">
+                <h3>C'est en dents de scie</h3>
+                <p>Des mois pleins, des mois vides. Impossible de prévoir la charge, donc impossible de la piloter sereinement.</p>
+            </div>
+            <div class="problem-item">
+                <h3>Personne n'a le temps</h3>
+                <p>Contacter de nouvelles entreprises une par une prend des heures. Alors ça passe toujours après le reste.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== STATEMENT ===== -->
+<section class="statement">
+    <div class="container">
+        <div class="tag">Notre façon de travailler</div>
+        <p>Pas de jargon. Pas de promesses en l'air. <span class="dim">On construit ce qui marche, on vous montre les résultats, et on vous dit franchement quand quelque chose ne marche pas.</span></p>
+    </div>
+</section>
+
+<!-- ===== HOW ===== -->
+<section class="how blueprint-bg">
+    <div class="container">
+        <h2>Une machine simple. Trois pièces.</h2>
+        <p class="how-intro">Rien de magique : un plan, un moteur, et quelqu'un qui la fait tourner tous les jours. C'est tout.</p>
+        <div class="steps">
+            <div class="step">
+                <div class="step-num">01</div>
+                <h3>Le plan</h3>
+                <p>On repère précisément les entreprises qui ont besoin de ce que vous vendez, et la bonne personne à qui parler chez elles.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">02</div>
+                <h3>Le moteur</h3>
+                <p>Des messages courts et justes, qui parlent de leur situation à eux. C'est ce qui fait qu'on vous répond &mdash; pas du courrier envoyé en masse.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">03</div>
+                <h3>La mise en route</h3>
+                <p>Envois, relances, suivi. On fait tourner la machine au quotidien. Les personnes intéressées arrivent dans votre agenda.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== OFFER ===== -->
+<section class="offer">
+    <div class="container">
+        <div class="offer-header">
+            <h2>Comment on démarre</h2>
+            <p>On commence petit, pour vérifier que ça marche chez vous. On continue seulement si c'est un vrai oui. Sans engagement caché.</p>
+        </div>
+        <div class="offer-grid">
+
+            <div class="card">
+                <div class="card-label">Pour commencer</div>
+                <h3>On vérifie que ça peut marcher</h3>
+                <p>Un diagnostic court et honnête, avant tout engagement.</p>
+                <div class="price">500&ndash;750&nbsp;&euro;</div>
+                <div class="price-sub">Déduit de la suite si on continue &middot; Sous 1 semaine</div>
+                <ul class="card-list">
+                    <li>On regarde votre marché et vos clients actuels</li>
+                    <li>On chiffre combien d'entreprises vous pouvez viser</li>
+                    <li>On vous dit franchement : oui ou non, et pourquoi</li>
+                </ul>
+                <div class="card-note">Un document clair que vous gardez, plus un échange de 20 minutes.</div>
+                <a href="https://cal.com/yonielbaz" class="btn">Commencer par là &rarr;</a>
+            </div>
+
+            <div class="card feature">
+                <div class="card-label">La suite</div>
+                <h3>On installe et on fait tourner la machine</h3>
+                <p>On construit le système au complet, puis on l'opère pour vous, mois après mois.</p>
+                <div class="price">à partir de 3&nbsp;500&nbsp;&euro; <span>/ mois</span></div>
+                <div class="price-sub">+ installation &middot; 3 mois minimum</div>
+                <ul class="card-list">
+                    <li>On construit votre liste d'entreprises à contacter</li>
+                    <li>On rédige et on envoie les messages</li>
+                    <li>On relance et on trie les réponses</li>
+                    <li>Vous recevez des rendez-vous intéressés</li>
+                    <li>Un point clair, chaque mois</li>
+                </ul>
+                <div class="card-note">Vous payez un système qui tourne &mdash; pas un nombre d'emails envoyés.</div>
+                <a href="https://cal.com/yonielbaz" class="btn">En parler &rarr;</a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ===== FIT ===== -->
+<section class="fit" id="fit">
+    <div class="container">
+        <div class="fit-grid">
+            <div class="fit-col yes">
+                <h3>C'est pour vous si</h3>
+                <ul class="fit-list">
+                    <li><span class="fit-icon">&rarr;</span> Vous avez un produit ou un service qui marche, mais pas assez de clients</li>
+                    <li><span class="fit-icon">&rarr;</span> Vous vendez à d'autres entreprises</li>
+                    <li><span class="fit-icon">&rarr;</span> Vous, ou un commercial, pouvez honorer les rendez-vous</li>
+                    <li><span class="fit-icon">&rarr;</span> Votre panier moyen dépasse environ 5 000 &euro;</li>
+                    <li><span class="fit-icon">&rarr;</span> Vous voulez du concret, pas des slides</li>
+                </ul>
+            </div>
+            <div class="fit-col no">
+                <h3>Ce n'est pas pour vous si</h3>
+                <ul class="fit-list">
+                    <li><span class="fit-icon">&mdash;</span> Vous attendez une garantie chiffrée de chiffre d'affaires</li>
+                    <li><span class="fit-icon">&mdash;</span> Vous vendez surtout aux particuliers</li>
+                    <li><span class="fit-icon">&mdash;</span> Vous cherchez un logo, un site ou de la publicité</li>
+                    <li><span class="fit-icon">&mdash;</span> Vous voulez juste un outil, sans réfléchir à qui contacter</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta-final">
+    <div class="container">
+        <h2>On en parle <em>franchement&nbsp;?</em></h2>
+        <p>30 minutes, sans engagement. Je vous dis si je peux vous aider. Et si ce n'est pas moi qu'il vous faut, je vous le dis aussi.</p>
+        <div class="cta-links">
+            <a href="https://cal.com/yonielbaz" class="btn">Prendre rendez-vous &rarr;</a>
+            <a href="https://linkedin.com/in/yonielbaz" class="secondary">LinkedIn</a>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+    <div class="container">
+        <p>YMKT &middot; Prospection commerciale &middot; Yoni Elbaz</p>
+        <p>Paris &middot; <a href="mailto:yoni.elbaz@pm.me">yoni.elbaz@pm.me</a></p>
+    </div>
+</footer>
+
+</body>
+</html>
