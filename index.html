@@ -262,6 +262,7 @@
             background: rgba(255,255,255,0.55);
         }
         .tool .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--blue); flex-shrink: 0; }
+        .tool-logo { width: 22px; height: 22px; object-fit: contain; border-radius: 5px; flex-shrink: 0; display: block; }
         .tool span { font-weight: 600; font-size: 0.96rem; letter-spacing: 0.01em; }
         .stack-note { font-size: 0.92rem; color: var(--text-muted); margin-top: 26px; max-width: 60ch; }
 
@@ -492,7 +493,7 @@
         <div class="method-block">
             <div class="mb-visual">
                 <div class="diagram-card">
-                    <svg viewBox="0 0 690 210" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Des signaux publics alimentent le moteur qui repère le bon moment, écrit le message et décroche le rendez-vous">
+                    <svg viewBox="0 0 724 214" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Des signaux publics alimentent le moteur qui repère le bon moment, écrit le message et décroche le rendez-vous">
                         <defs>
                             <linearGradient id="coreBlue" x1="0" y1="0" x2="1" y2="1">
                                 <stop offset="0" stop-color="#3b82f6"/>
@@ -503,32 +504,38 @@
                             </filter>
                         </defs>
                         <!-- entrées -->
-                        <rect x="0" y="26" width="124" height="42" rx="9" fill="#fff" stroke="#d4cfc7"/>
-                        <text class="dg-t" x="62" y="52" text-anchor="middle">Recrutement</text>
-                        <rect x="0" y="84" width="124" height="42" rx="9" fill="#fff" stroke="#d4cfc7"/>
-                        <text class="dg-t" x="62" y="110" text-anchor="middle">Croissance</text>
-                        <rect x="0" y="142" width="124" height="42" rx="9" fill="#fff" stroke="#d4cfc7"/>
-                        <text class="dg-t" x="62" y="168" text-anchor="middle">Levée de fonds</text>
+                        <rect x="0" y="22" width="152" height="46" rx="9" fill="#fff" stroke="#d4cfc7"/>
+                        <g transform="translate(15,36)" stroke="#2563eb" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="6" r="3.1"/><path d="M3.5 17c0-3 2.5-5.2 5.5-5.2s5.5 2.2 5.5 5.2"/></g>
+                        <text class="dg-t" x="42" y="50">Recrutement</text>
+                        <rect x="0" y="82" width="152" height="46" rx="9" fill="#fff" stroke="#d4cfc7"/>
+                        <g transform="translate(15,96)" stroke="#2563eb" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,13 7,8 11,11 16,5"/><polyline points="12,5 16,5 16,9"/></g>
+                        <text class="dg-t" x="42" y="110">Croissance</text>
+                        <rect x="0" y="142" width="152" height="46" rx="9" fill="#fff" stroke="#d4cfc7"/>
+                        <g transform="translate(15,156)" stroke="#2563eb" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5.5a6 6 0 1 0 0 7"/><line x1="2" y1="8" x2="11" y2="8"/><line x1="2" y1="11" x2="10" y2="11"/></g>
+                        <text class="dg-t" x="42" y="170">Levée de fonds</text>
                         <!-- convergence -->
-                        <path class="flow-line" d="M124 47 C175 47 175 96 208 100"/>
-                        <path class="flow-line" d="M124 105 C175 105 180 100 208 100"/>
-                        <path class="flow-line" d="M124 163 C175 163 175 104 208 100"/>
+                        <path class="flow-line" d="M152 45 C200 45 200 105 236 105"/>
+                        <path class="flow-line" d="M152 105 H236"/>
+                        <path class="flow-line" d="M152 165 C200 165 200 105 236 105"/>
                         <!-- moteur -->
-                        <rect x="210" y="66" width="150" height="68" rx="13" fill="url(#coreBlue)" filter="url(#glowB)"/>
-                        <text class="dg-w" x="285" y="96" text-anchor="middle">On repère</text>
-                        <text class="dg-w" x="285" y="114" text-anchor="middle">le bon moment</text>
+                        <rect x="238" y="70" width="164" height="70" rx="14" fill="url(#coreBlue)" filter="url(#glowB)"/>
+                        <g transform="translate(311,80)" stroke="#fff" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="10" height="10" rx="1.5"/><line x1="9" y1="1.5" x2="9" y2="4"/><line x1="9" y1="14" x2="9" y2="16.5"/><line x1="1.5" y1="9" x2="4" y2="9"/><line x1="14" y1="9" x2="16.5" y2="9"/></g>
+                        <text class="dg-w" x="320" y="116" text-anchor="middle">On repère</text>
+                        <text class="dg-w" x="320" y="132" text-anchor="middle">le bon moment</text>
                         <!-- vers message -->
-                        <path class="flow-line" d="M360 100 H408"/>
-                        <polygon fill="#2563eb" points="406,96 414,100 406,104"/>
-                        <rect x="416" y="74" width="110" height="52" rx="10" fill="#fff" stroke="#d4cfc7"/>
-                        <text class="dg-t" x="471" y="96" text-anchor="middle">Le bon</text>
-                        <text class="dg-t" x="471" y="112" text-anchor="middle">message</text>
+                        <path class="flow-line" d="M402 105 H444"/>
+                        <polygon fill="#2563eb" points="442,101 450,105 442,109"/>
+                        <rect x="452" y="76" width="120" height="58" rx="11" fill="#fff" stroke="#d4cfc7"/>
+                        <g transform="translate(503,84)" stroke="#2563eb" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="2.5" width="16" height="12" rx="1.6"/><path d="M1 4l8 5.5 8-5.5"/></g>
+                        <text class="dg-t" x="512" y="116" text-anchor="middle">Le bon</text>
+                        <text class="dg-t" x="512" y="131" text-anchor="middle">message</text>
                         <!-- vers rdv -->
-                        <path class="flow-line" d="M526 100 H566"/>
-                        <polygon fill="#2563eb" points="564,96 572,100 564,104"/>
-                        <rect x="574" y="74" width="116" height="52" rx="10" fill="#0b1220"/>
-                        <text class="dg-w" x="632" y="96" text-anchor="middle">Le rendez-</text>
-                        <text class="dg-w" x="632" y="112" text-anchor="middle">vous</text>
+                        <path class="flow-line" d="M572 105 H614"/>
+                        <polygon fill="#2563eb" points="612,101 620,105 612,109"/>
+                        <rect x="622" y="76" width="102" height="58" rx="11" fill="#0b1220"/>
+                        <g transform="translate(664,84)" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="2" width="16" height="13" rx="1.6"/><line x1="1" y1="6" x2="17" y2="6"/><path d="M5 10.5l2.5 2.5 4-4"/></g>
+                        <text class="dg-w" x="673" y="116" text-anchor="middle">Le rendez-</text>
+                        <text class="dg-w" x="673" y="131" text-anchor="middle">vous</text>
                     </svg>
                 </div>
             </div>
@@ -550,12 +557,12 @@
         <div class="stack">
             <div class="stack-label">Construit avec</div>
             <div class="stack-row">
-                <div class="tool"><span class="dot"></span><span>Claude</span></div>
-                <div class="tool"><span class="dot"></span><span>Clay</span></div>
-                <div class="tool"><span class="dot"></span><span>Lemlist</span></div>
-                <div class="tool"><span class="dot"></span><span>HeyReach</span></div>
-                <div class="tool"><span class="dot"></span><span>n8n</span></div>
-                <div class="tool"><span class="dot"></span><span>trigger.dev</span></div>
+                <div class="tool"><img class="tool-logo" src="logos/claude.png" alt="Claude" width="22" height="22"><span>Claude</span></div>
+                <div class="tool"><img class="tool-logo" src="logos/clay.png" alt="Clay" width="22" height="22"><span>Clay</span></div>
+                <div class="tool"><img class="tool-logo" src="logos/lemlist.png" alt="Lemlist" width="22" height="22"><span>Lemlist</span></div>
+                <div class="tool"><img class="tool-logo" src="logos/heyreach.jpg" alt="HeyReach" width="22" height="22"><span>HeyReach</span></div>
+                <div class="tool"><img class="tool-logo" src="logos/n8n.png" alt="n8n" width="22" height="22"><span>n8n</span></div>
+                <div class="tool"><img class="tool-logo" src="logos/triggerdev.png" alt="trigger.dev" width="22" height="22"><span>trigger.dev</span></div>
             </div>
             <p class="stack-note">Les mêmes outils que les meilleures équipes commerciales du monde. Vous, vous n'avez rien à installer ni à apprendre &mdash; on s'occupe de toute la mécanique.</p>
         </div>
