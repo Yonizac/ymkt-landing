@@ -192,6 +192,44 @@
         .step h3 { font-size: 1.5rem; line-height: 1.2; margin-bottom: 14px; }
         .step p { font-size: 1rem; color: var(--text-muted); }
 
+        /* ---- Tech / sous le capot ---- */
+        .tech { padding: 130px 0; border-bottom: 1px solid var(--border); }
+        .tech h2 { font-size: clamp(1.9rem, 3.8vw, 3rem); line-height: 1.15; max-width: 20ch; margin-bottom: 16px; }
+        .tech-intro { font-size: 1.05rem; color: var(--text-muted); max-width: 56ch; }
+
+        .diagram { margin: 64px 0 56px; overflow-x: auto; }
+        .diagram svg { display: block; margin: 0 auto; min-width: 660px; }
+        .dg-node { fill: var(--bg); stroke: var(--blue); stroke-width: 1.5; }
+        .dg-node-active { fill: var(--blue-soft); stroke: var(--blue); stroke-width: 1.5; }
+        .dg-line { stroke: var(--blue); stroke-width: 1; stroke-dasharray: 6 4; opacity: 0.45; }
+        .dg-t { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600; fill: var(--text); letter-spacing: 0.02em; }
+        .dg-s { font-family: 'Inter', sans-serif; font-size: 10.5px; fill: var(--text-muted); }
+
+        .signals-label { font-size: 0.92rem; color: var(--text-muted); margin-bottom: 20px; }
+        .signals { display: flex; flex-wrap: wrap; gap: 12px; }
+        .signal-chip {
+            border: 1px solid var(--border); border-radius: 100px;
+            padding: 9px 20px; font-size: 0.9rem; color: var(--text);
+            background: rgba(255,255,255,0.45);
+        }
+        .signal-chip b { color: var(--blue); font-weight: 600; }
+
+        .stack { margin-top: 84px; }
+        .stack-label {
+            font-size: 0.74rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.16em;
+            color: var(--blue); margin-bottom: 26px;
+        }
+        .stack-row { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+        .tool {
+            display: flex; align-items: center; gap: 11px;
+            padding: 13px 22px; border: 1px solid var(--border); border-radius: 8px;
+            background: rgba(255,255,255,0.45);
+        }
+        .tool .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--blue); flex-shrink: 0; }
+        .tool span { font-weight: 600; font-size: 0.98rem; letter-spacing: 0.01em; }
+        .stack-note { font-size: 0.9rem; color: var(--text-muted); margin-top: 24px; }
+
         /* ---- Offer ---- */
         .offer { padding: 130px 0; border-bottom: 1px solid var(--border); }
 
@@ -366,6 +404,65 @@
                 <h3>La mise en route</h3>
                 <p>Envois, relances, suivi. On fait tourner la machine au quotidien. Les personnes intéressées arrivent dans votre agenda.</p>
             </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== TECH / SOUS LE CAPOT ===== -->
+<section class="tech blueprint-bg" id="methode">
+    <div class="container">
+        <div class="section-label">Sous le capot</div>
+        <h2>On ne contacte pas au hasard. On attend le bon moment.</h2>
+        <p class="tech-intro">La plupart des prospections arrosent tout le monde, tout le temps. Nous, on part d'un <strong>signal</strong> : un événement qui montre qu'une entreprise a un besoin maintenant. Moins de messages envoyés, beaucoup plus de réponses.</p>
+
+        <div class="diagram">
+            <svg width="800" height="118" viewBox="0 0 800 118" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Node 1 -->
+                <rect class="dg-node-active" x="0" y="30" width="152" height="58" rx="7"/>
+                <text class="dg-t" x="76" y="56" text-anchor="middle">Un signal</text>
+                <text class="dg-s" x="76" y="73" text-anchor="middle">le bon moment</text>
+                <!-- arrow -->
+                <line class="dg-line" x1="156" y1="59" x2="202" y2="59"/>
+                <polygon fill="var(--blue)" opacity="0.45" points="200,55 208,59 200,63"/>
+                <!-- Node 2 -->
+                <rect class="dg-node" x="208" y="30" width="172" height="58" rx="7"/>
+                <text class="dg-t" x="294" y="56" text-anchor="middle">La bonne cible</text>
+                <text class="dg-s" x="294" y="73" text-anchor="middle">entreprise + contact</text>
+                <!-- arrow -->
+                <line class="dg-line" x1="384" y1="59" x2="430" y2="59"/>
+                <polygon fill="var(--blue)" opacity="0.45" points="428,55 436,59 428,63"/>
+                <!-- Node 3 -->
+                <rect class="dg-node-active" x="436" y="30" width="160" height="58" rx="7"/>
+                <text class="dg-t" x="516" y="56" text-anchor="middle">Le bon message</text>
+                <text class="dg-s" x="516" y="73" text-anchor="middle">écrit pour eux</text>
+                <!-- arrow -->
+                <line class="dg-line" x1="600" y1="59" x2="646" y2="59"/>
+                <polygon fill="var(--blue)" opacity="0.45" points="644,55 652,59 644,63"/>
+                <!-- Node 4 -->
+                <rect class="dg-node" x="652" y="30" width="148" height="58" rx="7"/>
+                <text class="dg-t" x="726" y="56" text-anchor="middle">Le rendez-vous</text>
+                <text class="dg-s" x="726" y="73" text-anchor="middle">dans votre agenda</text>
+            </svg>
+        </div>
+
+        <div class="signals-label">Les signaux qu'on surveille, par exemple :</div>
+        <div class="signals">
+            <div class="signal-chip">Une entreprise qui <b>recrute</b></div>
+            <div class="signal-chip">qui <b>s'agrandit</b> ou ouvre un site</div>
+            <div class="signal-chip">qui <b>lève des fonds</b></div>
+            <div class="signal-chip">qui <b>change de direction</b></div>
+            <div class="signal-chip">qui <b>expose dans un salon</b></div>
+        </div>
+
+        <div class="stack">
+            <div class="stack-label">Construit avec</div>
+            <div class="stack-row">
+                <div class="tool"><span class="dot"></span><span>Claude</span></div>
+                <div class="tool"><span class="dot"></span><span>Clay</span></div>
+                <div class="tool"><span class="dot"></span><span>Lemlist</span></div>
+                <div class="tool"><span class="dot"></span><span>HeyReach</span></div>
+            </div>
+            <p class="stack-note">Les mêmes outils que les meilleures équipes commerciales du monde. Vous, vous n'avez rien à installer ni à apprendre.</p>
         </div>
     </div>
 </section>
