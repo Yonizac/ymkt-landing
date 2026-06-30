@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Levier — v6 · intégration fluide</title>
+<title>Levier — v7 · retour au levier rigide</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{ --bg:#f5f2ed; --dark:#0b1220; --blue:#2563eb; --blue2:#3b82f6; --text:#1a1a1a; --muted:#6b6560; --border:#d4cfc7; --bline:rgba(37,99,235,.06); }
   *{margin:0;padding:0;box-sizing:border-box;}
@@ -18,12 +18,14 @@
   .label{font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.16em;color:var(--blue);margin:56px 0 8px;}
   .hint{color:var(--muted);font-size:.9rem;margin-bottom:22px;max-width:62ch;}
   .reco-tag{display:inline-block;font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:#fff;background:var(--blue);border-radius:100px;padding:3px 9px;margin-left:8px;vertical-align:middle;}
-  .card{border:1px solid var(--border);border-radius:18px;min-height:190px;display:flex;align-items:center;justify-content:center;box-shadow:0 24px 50px -32px rgba(37,99,235,.3);}
+  .card{border:1px solid var(--border);border-radius:18px;min-height:200px;display:flex;align-items:center;justify-content:center;box-shadow:0 24px 50px -32px rgba(37,99,235,.3);}
   .card.dark{background:var(--dark);}
   .card.light{background:linear-gradient(160deg,#fff,#f4f7fc);}
   .row{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
   @media(max-width:720px){.row{grid-template-columns:1fr;}}
   .cap{font-size:.85rem;color:var(--muted);margin-top:10px;text-align:center;}
+  .lockup{display:flex;align-items:center;gap:18px;}
+  .wm{font-family:'Inter';font-weight:700;font-size:2rem;letter-spacing:.18em;text-transform:uppercase;color:#fff;}
   .note{margin-top:56px;color:var(--muted);font-size:.93rem;border-top:1px solid var(--border);padding-top:28px;max-width:720px;}
   .note b{color:var(--text);}
 </style>
@@ -31,60 +33,80 @@
 <body>
 <div class="wrap">
   <h1>Levier</h1>
-  <div class="subt">v6 — le levier fusionné au mot, en un seul trait fluide</div>
+  <div class="subt">v7 — retour au levier rigide / rectangulaire (séparé)</div>
 
-  <!-- OPTION 1 -->
-  <div class="label">Option 1 — « le mot soulevé » <span class="reco-tag">reco</span></div>
-  <div class="hint">Un seul trait continu : il part du « L », coule sous le mot, puis se soulève à la fin vers le losange. « Levier » est la charge qu'on soulève. Fluide, lisible, intégré.</div>
+  <!-- VERSION ORIGINE -->
+  <div class="label">Version d'origine — la poutre, le triangle, le bloc</div>
+  <div class="hint">La poutre inclinée repose sur le triangle (point d'appui) et soulève le bloc bleu. Avec le sol et le point d'effort, comme la 1ʳᵉ fois.</div>
   <div class="row">
     <div>
       <div class="card dark">
-        <svg width="300" height="78" viewBox="0 0 220 78" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M18 12 L18 50 C18 57 21 60 28 60 L150 60 C171 60 180 53 197 32" stroke="#ffffff" stroke-width="5.4" stroke-linecap="round"/>
-          <path d="M200 25.5 L206.5 32 L200 38.5 L193.5 32 Z" fill="#3b82f6"/>
-          <text x="34" y="51" font-family="Inter, sans-serif" font-weight="700" font-size="44" letter-spacing="1" fill="#ffffff">evier</text>
+        <svg width="168" height="150" viewBox="0 0 56 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="42.5" y="6.5" width="10.5" height="10.5" rx="2.2" fill="#3b82f6"/>
+          <line x1="8" y1="40" x2="48" y2="16" stroke="#ffffff" stroke-width="3.4" stroke-linecap="round"/>
+          <polygon points="28,28 21.5,42 34.5,42" fill="#3b82f6"/>
+          <circle cx="8" cy="40" r="2.6" fill="#3b82f6"/>
+          <line x1="17" y1="44" x2="39" y2="44" stroke="#ffffff" stroke-width="1.4" stroke-linecap="round" opacity=".3"/>
         </svg>
       </div>
-      <div class="cap">Sur sombre (ta direction)</div>
+      <div class="cap">Sur sombre</div>
     </div>
     <div>
       <div class="card light">
-        <svg width="300" height="78" viewBox="0 0 220 78" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M18 12 L18 50 C18 57 21 60 28 60 L150 60 C171 60 180 53 197 32" stroke="#0b1220" stroke-width="5.4" stroke-linecap="round"/>
-          <path d="M200 25.5 L206.5 32 L200 38.5 L193.5 32 Z" fill="#2563eb"/>
-          <text x="34" y="51" font-family="Inter, sans-serif" font-weight="700" font-size="44" letter-spacing="1" fill="#0b1220">evier</text>
+        <svg width="168" height="150" viewBox="0 0 56 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="42.5" y="6.5" width="10.5" height="10.5" rx="2.2" fill="#2563eb"/>
+          <line x1="8" y1="40" x2="48" y2="16" stroke="#0b1220" stroke-width="3.4" stroke-linecap="round"/>
+          <polygon points="28,28 21.5,42 34.5,42" fill="#2563eb"/>
+          <circle cx="8" cy="40" r="2.6" fill="#2563eb"/>
+          <line x1="17" y1="44" x2="39" y2="44" stroke="#0b1220" stroke-width="1.4" stroke-linecap="round" opacity=".3"/>
         </svg>
       </div>
       <div class="cap">Sur clair</div>
     </div>
   </div>
 
-  <!-- OPTION 2 -->
-  <div class="label">Option 2 — « le L qui s'envole » (compact)</div>
-  <div class="hint">Le « L » est un seul trait : il descend puis se soulève en courbe douce vers le losange. Plus compact, plus monogramme.</div>
+  <!-- VERSION EPUREE -->
+  <div class="label">Version épurée — poutre + triangle + bloc seulement <span class="reco-tag">reco</span></div>
+  <div class="hint">Même levier rigide, mais sans le sol ni le point d'effort : 3 éléments au lieu de 5. Plus net, sans trahir le concept.</div>
   <div class="row">
     <div>
       <div class="card dark">
-        <svg width="280" height="78" viewBox="0 0 230 78" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M22 12 L22 46 C22 55 28 57 37 50 L58 34" stroke="#ffffff" stroke-width="5.4" stroke-linecap="round"/>
-          <path d="M61 27.5 L67.5 34 L61 40.5 L54.5 34 Z" fill="#3b82f6"/>
-          <text x="78" y="51" font-family="Inter, sans-serif" font-weight="700" font-size="44" letter-spacing="1" fill="#ffffff">evier</text>
+        <svg width="168" height="150" viewBox="0 0 56 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="42.5" y="6.5" width="10.5" height="10.5" rx="2.2" fill="#3b82f6"/>
+          <line x1="8" y1="40" x2="48" y2="16" stroke="#ffffff" stroke-width="3.4" stroke-linecap="round"/>
+          <polygon points="28,28 21.5,42 34.5,42" fill="#3b82f6"/>
         </svg>
       </div>
       <div class="cap">Sur sombre</div>
     </div>
     <div>
-      <div class="card dark" style="min-height:150px;">
-        <svg width="92" height="92" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M22 15 L22 44 C22 53 28 55 37 48 L49 38" stroke="#ffffff" stroke-width="5.6" stroke-linecap="round"/>
-          <path d="M51.5 31.5 L57 37 L51.5 42.5 L46 37 Z" fill="#3b82f6"/>
+      <div class="card light">
+        <svg width="168" height="150" viewBox="0 0 56 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="42.5" y="6.5" width="10.5" height="10.5" rx="2.2" fill="#2563eb"/>
+          <line x1="8" y1="40" x2="48" y2="16" stroke="#0b1220" stroke-width="3.4" stroke-linecap="round"/>
+          <polygon points="28,28 21.5,42 34.5,42" fill="#2563eb"/>
         </svg>
       </div>
-      <div class="cap">Le « L » fluide seul = l'icône (favicon/avatar)</div>
+      <div class="cap">Sur clair</div>
     </div>
   </div>
 
-  <p class="note">Cette fois le levier n'est pas « posé » : c'est <b>un seul trait fluide</b> qui naît du L et porte le mot. <b>Option 1</b> = le mot soulevé (le plus fluide et intégré). <b>Option 2</b> = un L compact qui s'envole (+ icône autonome). Dis-moi laquelle, et les ajustements (courbure, longueur, losange vs point) — j'affine puis j'applique sur le site.</p>
+  <!-- LOCKUP -->
+  <div class="label">Le logo complet — version épurée + wordmark sans, sur sombre</div>
+  <div class="row" style="grid-template-columns:1fr;">
+    <div class="card dark" style="min-height:150px;">
+      <div class="lockup">
+        <svg width="60" height="54" viewBox="0 0 56 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="42.5" y="6.5" width="10.5" height="10.5" rx="2.2" fill="#3b82f6"/>
+          <line x1="8" y1="40" x2="48" y2="16" stroke="#ffffff" stroke-width="3.4" stroke-linecap="round"/>
+          <polygon points="28,28 21.5,42 34.5,42" fill="#3b82f6"/>
+        </svg>
+        <span class="wm">Levier</span>
+      </div>
+    </div>
+  </div>
+
+  <p class="note">On revient donc au <b>levier rigide/rectangulaire séparé</b>. Ma seule suggestion : la <b>version épurée</b> (poutre + triangle + bloc) pour rester net. Dis-moi : <b>version d'origine ou épurée</b> — et si tu valides, j'applique ce logo + la tagline sur le site (et en favicon).</p>
 </div>
 </body>
 </html>
