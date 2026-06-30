@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 50" fill="none" role="img" aria-label="Levier">
+  <title>Levier — mark (fond clair)</title>
+  <rect x="42.5" y="6.5" width="10.5" height="10.5" rx="2.2" fill="#2563eb"/>
+  <line x1="8" y1="40" x2="48" y2="16" stroke="#0b1220" stroke-width="3.4" stroke-linecap="round"/>
+  <polygon points="28,28 21.5,42 34.5,42" fill="#2563eb"/>
+</svg>
