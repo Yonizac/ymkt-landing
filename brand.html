@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Levier — v4 · A/B × point/losange/sparkle</title>
+<title>Levier — v5 · logo intégré au L</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{ --bg:#f5f2ed; --dark:#0b1220; --blue:#2563eb; --blue2:#3b82f6; --text:#1a1a1a; --muted:#6b6560; --border:#d4cfc7; --bline:rgba(37,99,235,.06); }
   *{margin:0;padding:0;box-sizing:border-box;}
@@ -14,18 +14,17 @@
     background-image:repeating-linear-gradient(0deg,var(--bline) 0 1px,transparent 1px 72px),repeating-linear-gradient(90deg,var(--bline) 0 1px,transparent 1px 72px);}
   .wrap{max-width:1000px;margin:0 auto;padding:64px 32px 110px;}
   h1{font-family:'DM Serif Display',serif;font-weight:400;font-size:2.3rem;letter-spacing:-.02em;}
-  .sub{color:var(--muted);margin-bottom:40px;}
+  .subt{color:var(--muted);margin-bottom:36px;}
   .label{font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.16em;color:var(--blue);margin:56px 0 8px;}
-  .hint{color:var(--muted);font-size:.9rem;margin-bottom:24px;}
-  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
-  @media(max-width:720px){.grid3{grid-template-columns:1fr;}}
-  .card{position:relative;border:1px solid var(--border);border-radius:16px;min-height:170px;display:flex;align-items:center;justify-content:center;background:var(--dark);box-shadow:0 22px 46px -30px rgba(37,99,235,.3);}
-  .card .tag{position:absolute;top:12px;left:14px;font-size:.66rem;letter-spacing:.06em;color:rgba(255,255,255,.5);}
-  .card.reco{outline:2px solid var(--blue);}
-  .card .reco-b{position:absolute;top:10px;right:12px;font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:#fff;background:var(--blue);border-radius:100px;padding:3px 9px;}
-  .lockup{display:flex;align-items:center;gap:18px;}
-  .wm{font-family:'Inter';font-weight:700;font-size:1.7rem;letter-spacing:.18em;text-transform:uppercase;color:#fff;}
-  .tags{list-style:none;display:flex;flex-direction:column;gap:12px;max-width:640px;margin-top:8px;}
+  .hint{color:var(--muted);font-size:.9rem;margin-bottom:22px;max-width:60ch;}
+  .card{border:1px solid var(--border);border-radius:18px;min-height:200px;display:flex;align-items:center;justify-content:center;box-shadow:0 24px 50px -32px rgba(37,99,235,.3);}
+  .card.dark{background:var(--dark);}
+  .card.light{background:linear-gradient(160deg,#fff,#f4f7fc);}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  @media(max-width:720px){.row{grid-template-columns:1fr;}}
+  .row.icons{grid-template-columns:1fr 1fr;}
+  .cap{font-size:.85rem;color:var(--muted);margin-top:10px;text-align:center;}
+  .tags{list-style:none;display:flex;flex-direction:column;gap:12px;max-width:640px;margin-top:6px;}
   .tags li{border:1px solid var(--border);border-radius:10px;padding:16px 20px;background:rgba(255,255,255,.5);font-size:1.02rem;}
   .tags li.reco{border-color:var(--blue);background:rgba(37,99,235,.06);}
   .tags .badge{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:#fff;background:var(--blue);border-radius:100px;padding:3px 9px;margin-right:10px;}
@@ -36,40 +35,61 @@
 <body>
 <div class="wrap">
   <h1>Levier</h1>
-  <div class="sub">v4 — comparer A/B et la terminaison (point · losange · sparkle)</div>
+  <div class="subt">v5 — le logo intégré au « L » du nom</div>
 
-  <!-- CONCEPT A -->
-  <div class="label">Concept A — « le pli » (fluide)</div>
-  <div class="hint">Trait courbe. Plus doux, mais lit comme une courbe de croissance générique.</div>
-  <div class="grid3">
-    <div class="card"><span class="tag">A · point</span>
-      <svg width="150" height="108" viewBox="0 0 64 46" fill="none"><path d="M9 17 C16 31 20 34 25 34 C30 34 38 22 55 8" stroke="#fff" stroke-width="3.2" stroke-linecap="round"/><circle cx="55" cy="8" r="4.3" fill="#3b82f6"/></svg></div>
-    <div class="card"><span class="tag">A · losange</span>
-      <svg width="150" height="108" viewBox="0 0 64 46" fill="none"><path d="M9 17 C16 31 20 34 25 34 C30 34 38 22 55 8" stroke="#fff" stroke-width="3.2" stroke-linecap="round"/><path d="M55 3 L60 8 L55 13 L50 8 Z" fill="#3b82f6"/></svg></div>
-    <div class="card"><span class="tag">A · sparkle</span>
-      <svg width="150" height="108" viewBox="0 0 64 46" fill="none"><path d="M9 17 C16 31 20 34 25 34 C30 34 38 22 55 8" stroke="#fff" stroke-width="3.2" stroke-linecap="round"/><path d="M55 1.8 Q55 6.2 50.2 8 Q55 9.8 55 14.2 Q55 9.8 59.8 8 Q55 6.2 55 1.8 Z" fill="#3b82f6"/></svg></div>
-  </div>
-
-  <!-- CONCEPT B -->
-  <div class="label">Concept B — « l'angle » (net, lit comme un levier) — ma reco</div>
-  <div class="hint">Pointe basse = point d'appui, long bras qui se soulève. Distinctif, “ingénieur”.</div>
-  <div class="grid3">
-    <div class="card"><span class="tag">B · point</span>
-      <svg width="150" height="108" viewBox="0 0 64 46" fill="none"><path d="M15 22 L27 34 L55 8" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="55" cy="8" r="4.3" fill="#3b82f6"/></svg></div>
-    <div class="card reco"><span class="tag">B · losange</span><span class="reco-b">Reco</span>
-      <svg width="150" height="108" viewBox="0 0 64 46" fill="none"><path d="M15 22 L27 34 L55 8" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M55 3 L60 8 L55 13 L50 8 Z" fill="#3b82f6"/></svg></div>
-    <div class="card"><span class="tag">B · sparkle</span>
-      <svg width="150" height="108" viewBox="0 0 64 46" fill="none"><path d="M15 22 L27 34 L55 8" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M55 1.8 Q55 6.2 50.2 8 Q55 9.8 55 14.2 Q55 9.8 59.8 8 Q55 6.2 55 1.8 Z" fill="#3b82f6"/></svg></div>
-  </div>
-
-  <!-- LOCKUP RECO -->
-  <div class="label">Le logo — ma reco : B + losange + Inter caps, sur sombre</div>
-  <div class="grid3" style="grid-template-columns:1fr;">
-    <div class="card" style="min-height:150px;">
-      <div class="lockup">
-        <svg width="64" height="46" viewBox="0 0 64 46" fill="none"><path d="M15 22 L27 34 L55 8" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M55 3 L60 8 L55 13 L50 8 Z" fill="#3b82f6"/></svg>
-        <span class="wm">Levier</span>
+  <!-- LOGOTYPE COMPLET -->
+  <div class="label">Le logotype — le « L » est le levier</div>
+  <div class="hint">Le montant vertical + le pied qui se soulève sur le coin-pivot = un levier qui reste lisible comme un « L ». Le reste du mot en Inter. Terminaison losange (clin d'œil IA discret).</div>
+  <div class="row">
+    <div>
+      <div class="card dark">
+        <svg width="320" height="74" viewBox="0 0 340 74" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- L-levier -->
+          <line x1="20" y1="16" x2="20" y2="56" stroke="#fff" stroke-width="8" stroke-linecap="round"/>
+          <line x1="20" y1="56" x2="52" y2="35" stroke="#fff" stroke-width="8" stroke-linecap="round"/>
+          <path d="M55 31.5 L61 37 L55 42.5 L49 37 Z" fill="#3b82f6"/>
+          <!-- EVIER -->
+          <text x="72" y="56" font-family="Inter, sans-serif" font-weight="700" font-size="52" letter-spacing="2" fill="#ffffff">EVIER</text>
+        </svg>
       </div>
+      <div class="cap">Sur sombre (ta direction)</div>
+    </div>
+    <div>
+      <div class="card light">
+        <svg width="320" height="74" viewBox="0 0 340 74" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="20" y1="16" x2="20" y2="56" stroke="#0b1220" stroke-width="8" stroke-linecap="round"/>
+          <line x1="20" y1="56" x2="52" y2="35" stroke="#0b1220" stroke-width="8" stroke-linecap="round"/>
+          <path d="M55 31.5 L61 37 L55 42.5 L49 37 Z" fill="#2563eb"/>
+          <text x="72" y="56" font-family="Inter, sans-serif" font-weight="700" font-size="52" letter-spacing="2" fill="#0b1220">EVIER</text>
+        </svg>
+      </div>
+      <div class="cap">Sur clair</div>
+    </div>
+  </div>
+
+  <!-- ICONE AUTONOME -->
+  <div class="label">L'icône autonome — le « L »-levier seul</div>
+  <div class="hint">Le même « L » sert de favicon, d'avatar, d'icône d'app. Une idée, deux usages.</div>
+  <div class="row icons">
+    <div>
+      <div class="card dark" style="min-height:170px;">
+        <svg width="92" height="92" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="22" y1="16" x2="22" y2="47" stroke="#fff" stroke-width="6.5" stroke-linecap="round"/>
+          <line x1="22" y1="47" x2="46" y2="31" stroke="#fff" stroke-width="6.5" stroke-linecap="round"/>
+          <path d="M48.5 28 L53 32.5 L48.5 37 L44 32.5 Z" fill="#3b82f6"/>
+        </svg>
+      </div>
+      <div class="cap">Icône sombre</div>
+    </div>
+    <div>
+      <div class="card light" style="min-height:170px;">
+        <svg width="92" height="92" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="22" y1="16" x2="22" y2="47" stroke="#0b1220" stroke-width="6.5" stroke-linecap="round"/>
+          <line x1="22" y1="47" x2="46" y2="31" stroke="#0b1220" stroke-width="6.5" stroke-linecap="round"/>
+          <path d="M48.5 28 L53 32.5 L48.5 37 L44 32.5 Z" fill="#2563eb"/>
+        </svg>
+      </div>
+      <div class="cap">Icône claire</div>
     </div>
   </div>
 
@@ -78,10 +98,9 @@
   <ul class="tags">
     <li class="reco"><span class="badge">Reco</span>On démultiplie votre développement commercial.</li>
     <li>Votre croissance, démultipliée.</li>
-    <li>Un point d'appui, et on soulève votre développement.</li>
   </ul>
 
-  <p class="note"><b>Mon conseil :</b> Concept <b>B</b> (il se lit comme un levier + langage ingénieur) avec une terminaison en <b>losange</b> : sobre, précis, clin d'œil discret à l'IA <b>sans</b> le sparkle “magique” qui contredirait ton “no bullshit”. Le sparkle est montré pour comparaison — mais je le déconseille (cliché + il date). Dis-moi ta combinaison et j'applique sur le site.</p>
+  <p class="note"><b>Idée :</b> le logo n'est plus « un mark + un mot » côte à côte, mais <b>fusionné dans le « L »</b>. Tu obtiens un <b>logotype</b> (Levier) et une <b>icône autonome</b> (le L-levier) d'un seul coup. Si tu valides la direction, je peux affiner l'épaisseur/les proportions du L pour qu'il s'harmonise parfaitement avec l'Inter, puis l'appliquer sur le site.</p>
 </div>
 </body>
 </html>
