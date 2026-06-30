@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Levier — aperçu d'identité (v2 épurée)</title>
+<title>Levier — aperçu d'identité (v3, mark intégré)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -18,106 +18,105 @@
   .story{font-family:'DM Serif Display',serif;font-size:1.25rem;line-height:1.45;max-width:600px;}
   .story span{color:var(--muted);}
   .story-cap{font-size:.84rem;color:var(--muted);margin-top:8px;}
-  .label{font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.16em;color:var(--blue);margin:72px 0 28px;}
-  .row{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+  .label{font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.16em;color:var(--blue);margin:68px 0 26px;}
+  .row{display:grid;grid-template-columns:1.4fr 1fr;gap:24px;}
   @media(max-width:720px){.row{grid-template-columns:1fr;}}
-  .card{border:1px solid var(--border);border-radius:18px;min-height:230px;display:flex;align-items:center;justify-content:center;box-shadow:0 26px 54px -32px rgba(37,99,235,.3);}
+  .card{border:1px solid var(--border);border-radius:18px;min-height:240px;display:flex;align-items:center;justify-content:center;box-shadow:0 26px 54px -32px rgba(37,99,235,.3);}
   .card.light{background:linear-gradient(160deg,#fff,#f4f7fc);}
   .card.dark{background:var(--dark);}
-  .cap{font-size:.86rem;color:var(--muted);margin-top:12px;text-align:center;}
+  .cap{font-size:.86rem;color:var(--muted);margin-top:12px;}
   .reco-tag{display:inline-block;font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:#fff;background:var(--blue);border-radius:100px;padding:3px 9px;margin-left:8px;vertical-align:middle;}
-  .lockup{display:flex;align-items:center;gap:18px;}
-  .wm-serif{font-family:'DM Serif Display',serif;font-size:2.5rem;letter-spacing:-.01em;}
-  .wm-sans{font-family:'Inter',sans-serif;font-weight:700;font-size:1.9rem;letter-spacing:.18em;text-transform:uppercase;}
+  .lockup{display:flex;align-items:center;gap:20px;}
+  .wm-sans{font-family:'Inter',sans-serif;font-weight:700;font-size:2.1rem;letter-spacing:.18em;text-transform:uppercase;}
   .on-dark{color:#fff;}
   .tags{list-style:none;display:flex;flex-direction:column;gap:14px;max-width:640px;}
   .tags li{border:1px solid var(--border);border-radius:10px;padding:18px 22px;background:rgba(255,255,255,.5);font-size:1.05rem;}
   .tags li.reco{border-color:var(--blue);background:rgba(37,99,235,.06);}
   .tags .badge{display:inline-block;font-size:.64rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:#fff;background:var(--blue);border-radius:100px;padding:3px 10px;margin-right:10px;vertical-align:middle;}
-  .note{margin-top:64px;color:var(--muted);font-size:.94rem;border-top:1px solid var(--border);padding-top:30px;max-width:700px;}
+  .note{margin-top:64px;color:var(--muted);font-size:.94rem;border-top:1px solid var(--border);padding-top:30px;max-width:720px;}
   .note b{color:var(--text);}
 </style>
 </head>
 <body>
 <div class="wrap">
   <h1>Levier</h1>
-  <div class="sub">Aperçu d'identité — v2, version épurée</div>
+  <div class="sub">Aperçu d'identité — v3 · le mark devient une seule forme continue</div>
 
   <div class="story">« Donnez-moi un point d'appui&hellip; <span>et je soulèverai le monde. »</span></div>
-  <div class="story-cap">Archimède — la figure d'ingénierie qui porte le nom.</div>
+  <div class="story-cap">Archimède.</div>
 
-  <!-- CONCEPT 1 -->
-  <div class="label">Concept 1 — « Le trait » <span class="reco-tag">reco</span></div>
+  <!-- CONCEPT A -->
+  <div class="label">Concept A — « le pli » (trait fluide) <span class="reco-tag">reco</span></div>
   <div class="row">
     <div>
-      <div class="card light">
-        <svg width="176" height="135" viewBox="0 0 64 49" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M8 35 C30 35 34 33 56 10" stroke="#0b1220" stroke-width="3.4" stroke-linecap="round"/>
-          <circle cx="56" cy="10" r="4.4" fill="#2563eb"/>
+      <div class="card dark">
+        <svg width="200" height="148" viewBox="0 0 64 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 17 C16 31 20 34 25 34 C30 34 38 22 55 8" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round"/>
+          <circle cx="55" cy="8" r="4.3" fill="#3b82f6"/>
         </svg>
       </div>
-      <div class="cap">Un seul trait qui s'élève, une seule touche de bleu (le point atteint).</div>
+      <div class="cap">Un <b style="color:#1a1a1a">seul trait</b>. Le point d'appui n'est plus un triangle posé : c'est le <b style="color:#1a1a1a">creux du trait</b>. Le bras s'élève vers le point bleu (le marché atteint).</div>
     </div>
     <div>
-      <div class="card dark">
-        <svg width="176" height="135" viewBox="0 0 64 49" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M8 35 C30 35 34 33 56 10" stroke="#ffffff" stroke-width="3.4" stroke-linecap="round"/>
-          <circle cx="56" cy="10" r="4.4" fill="#3b82f6"/>
+      <div class="card light">
+        <svg width="170" height="123" viewBox="0 0 64 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 17 C16 31 20 34 25 34 C30 34 38 22 55 8" stroke="#0b1220" stroke-width="3.2" stroke-linecap="round"/>
+          <circle cx="55" cy="8" r="4.3" fill="#2563eb"/>
         </svg>
       </div>
-      <div class="cap">Sur sombre.</div>
+      <div class="cap">Sur clair.</div>
     </div>
   </div>
 
-  <!-- CONCEPT 2 -->
-  <div class="label">Concept 2 — « Le monogramme L »</div>
+  <!-- CONCEPT B -->
+  <div class="label">Concept B — « l'angle » (intégré, plus net)</div>
   <div class="row">
     <div>
-      <div class="card light">
-        <svg width="140" height="135" viewBox="0 0 50 49" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M16 8 L16 31 C16 33.5 17.5 34.5 20.5 33.3 L42 24" stroke="#0b1220" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="42" cy="24" r="4.2" fill="#2563eb"/>
+      <div class="card dark">
+        <svg width="200" height="148" viewBox="0 0 64 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15 22 L27 34 L55 8" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="55" cy="8" r="4.3" fill="#3b82f6"/>
         </svg>
       </div>
-      <div class="cap">Un « L » dont le pied se soulève comme un levier. Distinctif, ownable.</div>
+      <div class="cap">Même idée, lignes droites : la pointe basse = le point d'appui, le long bras se soulève. Plus <b style="color:#1a1a1a">technique/ingénieur</b>.</div>
     </div>
     <div>
-      <div class="card dark">
-        <svg width="140" height="135" viewBox="0 0 50 49" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M16 8 L16 31 C16 33.5 17.5 34.5 20.5 33.3 L42 24" stroke="#ffffff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="42" cy="24" r="4.2" fill="#3b82f6"/>
+      <div class="card light">
+        <svg width="170" height="123" viewBox="0 0 64 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15 22 L27 34 L55 8" stroke="#0b1220" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="55" cy="8" r="4.3" fill="#2563eb"/>
         </svg>
       </div>
-      <div class="cap">Sur sombre.</div>
+      <div class="cap">Sur clair.</div>
     </div>
   </div>
 
-  <!-- LOCKUP -->
-  <div class="label">Le logo complet (Concept 1 + wordmark)</div>
+  <!-- LOCKUP : ta direction (sans, sombre) -->
+  <div class="label">Le logo — ta direction : wordmark sans, sur sombre</div>
   <div class="row">
-    <div>
-      <div class="card light">
-        <div class="lockup">
-          <svg width="64" height="49" viewBox="0 0 64 49" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M8 35 C30 35 34 33 56 10" stroke="#0b1220" stroke-width="3.4" stroke-linecap="round"/>
-            <circle cx="56" cy="10" r="4.4" fill="#2563eb"/>
-          </svg>
-          <span class="wm-serif">Levier</span>
-        </div>
-      </div>
-      <div class="cap">Piste A — serif (héritage, caractère)</div>
-    </div>
     <div>
       <div class="card dark">
         <div class="lockup">
-          <svg width="58" height="44" viewBox="0 0 64 49" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M8 35 C30 35 34 33 56 10" stroke="#ffffff" stroke-width="3.4" stroke-linecap="round"/>
-            <circle cx="56" cy="10" r="4.4" fill="#3b82f6"/>
+          <svg width="64" height="46" viewBox="0 0 64 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 17 C16 31 20 34 25 34 C30 34 38 22 55 8" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round"/>
+            <circle cx="55" cy="8" r="4.3" fill="#3b82f6"/>
           </svg>
           <span class="wm-sans on-dark">Levier</span>
         </div>
       </div>
-      <div class="cap">Piste B — sans (technique, précis)</div>
+      <div class="cap">Concept A + Inter caps.</div>
+    </div>
+    <div>
+      <div class="card dark">
+        <div class="lockup">
+          <svg width="64" height="46" viewBox="0 0 64 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15 22 L27 34 L55 8" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="55" cy="8" r="4.3" fill="#3b82f6"/>
+          </svg>
+          <span class="wm-sans on-dark">Levier</span>
+        </div>
+      </div>
+      <div class="cap">Concept B + Inter caps.</div>
     </div>
   </div>
 
@@ -129,7 +128,7 @@
     <li>Un point d'appui, et on soulève votre développement.</li>
   </ul>
 
-  <p class="note">Version épurée selon les tendances 2026 (néo-minimalisme + « simple twist ») : <b>un seul trait fluide</b>, <b>une seule touche de bleu</b>, beaucoup d'espace. L'<b>élan vers le haut</b> rappelle le go-to-market (lancer, atteindre le marché) et l'effet de levier. Dis-moi : <b>Concept 1 (le trait) ou 2 (le monogramme L)</b>, et <b>wordmark serif ou sans</b> — puis j'applique sur le site.</p>
+  <p class="note">Cette fois, <b>aucune superposition</b> : le triangle/point d'appui et la barre sont <b>fusionnés en une seule forme continue</b> (le point d'appui = le creux du trait). Reste à choisir : <b>Concept A (fluide) ou B (net)</b> — puis j'applique le logo + la tagline sur le site.</p>
 </div>
 </body>
 </html>
