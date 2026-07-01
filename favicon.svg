@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" role="img" aria-label="Levier">
+  <title>Levier</title>
+  <style>
+    .stroke { stroke: #0b1220; }
+    .accent { fill:   #2563eb; }
+    @media (prefers-color-scheme: dark) {
+      .stroke { stroke: #ffffff; }
+      .accent { fill:   #3b82f6; }
+    }
+  </style>
+  <!-- Trait fluide renforcé : reste lisible jusqu'à 16px -->
+  <path class="stroke" d="M8 37 C24 37 29 31 39 10" stroke-width="4.6" stroke-linecap="round" fill="none"/>
+  <circle class="accent" cx="39" cy="10" r="4.6"/>
+</svg>
